@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="200dp"
-    android:padding="12dp"
-    android:background="#FFFFFF">
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    android:padding="12dp">
 
     <TextView
         android:id="@+id/tv_title_expanded"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="通知标题 (展开状态)"
+        android:text="@string/notification_title"
         android:textColor="#333333"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/tv_content_expanded"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tv_title_expanded"
-        android:layout_marginTop="8dp"
-        android:text="这里是展开后的详细内容展示，可以包含更多的文字信息，甚至是可以交互的按钮等。为了演示，我们放一个大图在下面。"
+        android:layout_marginTop="6dp"
+        android:text="@string/notification_content"
         android:textColor="#666666"
         android:textSize="14sp" />
 
@@ -28,9 +28,31 @@
         android:id="@+id/iv_big_picture"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:layout_below="@id/tv_content_expanded"
         android:layout_marginTop="8dp"
         android:scaleType="centerCrop"
         android:src="@drawable/ic_launcher_background" />
 
-</RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="end"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_notification_cta_expanded_alt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="@string/notification_cta_alt"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/btn_notification_cta_expanded"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/notification_cta"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -2,41 +2,53 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="64dp"
-    android:padding="8dp"
-    android:background="#FFFFFF">
+    android:background="@android:color/white"
+    android:padding="8dp">
 
     <ImageView
         android:id="@+id/iv_icon"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_centerVertical="true"
-        android:src="@mipmap/ic_launcher"
-        android:scaleType="centerInside" />
+        android:scaleType="centerInside"
+        android:src="@mipmap/ic_launcher" />
+
+    <Button
+        android:id="@+id/btn_notification_cta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:paddingEnd="12dp"
+        android:paddingStart="12dp"
+        android:text="@string/notification_cta"
+        android:textSize="12sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/iv_icon"
         android:layout_centerVertical="true"
         android:layout_marginStart="12dp"
+        android:layout_toEndOf="@id/iv_icon"
+        android:layout_toStartOf="@id/btn_notification_cta"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="通知标题 (收起状态)"
+            android:text="@string/notification_title"
             android:textColor="#333333"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tv_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="这是通知的具体内容描述..."
+            android:text="@string/notification_content"
             android:textColor="#666666"
-            android:textSize="14sp" />
+            android:textSize="12sp" />
     </LinearLayout>
 
 </RelativeLayout>

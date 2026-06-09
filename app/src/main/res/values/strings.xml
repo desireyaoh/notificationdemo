@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">NotificationDemo</string>
+
+    <!-- 通知渠道 -->
+    <string name="notification_channel_name">推荐推送</string>
+    <string name="notification_channel_desc">解锁屏幕时推送内容推荐</string>
+    <string name="notification_listener_service_channel_name">后台监听服务</string>
+    <string name="notification_listener_service_title">服务运行中</string>
+
+    <!-- 按钮文本 -->
+    <string name="btn_show_notification">手动触发通知</string>
+    <string name="btn_request_storage">请求存储权限</string>
+
+    <!-- 通知内容 -->
+    <string name="notification_title">有新内容等你看</string>
+    <string name="notification_content">点击立即查看精彩内容</string>
+    <string name="notification_cta">立即查看</string>
+    <string name="notification_cta_alt">稍后再看</string>
 </resources>
