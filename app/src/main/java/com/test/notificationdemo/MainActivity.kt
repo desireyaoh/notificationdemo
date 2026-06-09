@@ -3,8 +3,11 @@ package com.test.notificationdemo
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.os.Environment
+import android.provider.Settings
 import android.view.View
 import android.view.WindowInsetsController
 import android.widget.Toast
@@ -78,12 +81,23 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun requestStoragePermissions() {
-        val permissions = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            arrayOf(Manifest.permission.READ_MEDIA_IMAGES)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            if (Environment.isExternalStorageManager()) {
+                Toast.makeText(this, "已拥有所有文件管理权限", Toast.LENGTH_SHORT).show()
+            } else {
+                val intent = Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION).apply {
+                    data = Uri.parse("package:$packageName")
+                }
+                startActivity(intent)
+            }
         } else {
-            arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE)
+            requestStoragePermission.launch(
+                arrayOf(
+                    Manifest.permission.READ_EXTERNAL_STORAGE,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE
+                )
+            )
         }
-        requestStoragePermission.launch(permissions)
     }
 
     private fun setLightStatusBar() {

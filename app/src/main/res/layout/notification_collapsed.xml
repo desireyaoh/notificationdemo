@@ -1,36 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="64dp"
-    android:background="@android:color/white"
-    android:padding="8dp">
+    android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/iv_icon"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_centerVertical="true"
-        android:scaleType="centerInside"
-        android:src="@mipmap/ic_launcher" />
-
-    <Button
-        android:id="@+id/btn_notification_cta"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ViewFlipper
+        android:id="@+id/vf_cta"
+        android:layout_width="100dp"
+        android:layout_height="32dp"
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
-        android:paddingEnd="12dp"
-        android:paddingStart="12dp"
-        android:text="@string/notification_cta"
-        android:textSize="12sp" />
+        android:autoStart="true"
+        android:flipInterval="800"
+        android:inAnimation="@anim/scale_in"
+        android:outAnimation="@anim/scale_out">
+
+        <ImageView
+            android:id="@+id/btn_notification_cta"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:background="@drawable/bg_notification_cta_btn"
+            android:stateListAnimator="@null" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:background="@drawable/bg_notification_cta_btn"
+            android:stateListAnimator="@null"
+            android:text="@string/notification_cta"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+
+    </ViewFlipper>
 
     <LinearLayout
+        android:id="@+id/ll_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_marginStart="12dp"
-        android:layout_toEndOf="@id/iv_icon"
-        android:layout_toStartOf="@id/btn_notification_cta"
+        android:layout_toStartOf="@id/vf_cta"
         android:orientation="vertical">
 
         <TextView
@@ -46,9 +54,25 @@
             android:id="@+id/tv_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
             android:text="@string/notification_content"
             android:textColor="#666666"
             android:textSize="12sp" />
+
     </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@id/vf_cta"
+        android:layout_alignTop="@id/vf_cta"
+        android:layout_alignEnd="@id/vf_cta"
+        android:layout_alignBottom="@id/vf_cta"
+        android:gravity="center"
+        android:text="点击查看"
+        android:layout_marginTop="2dp"
+        android:textColor="@color/white"
+        android:textSize="12sp" />
 
 </RelativeLayout>
