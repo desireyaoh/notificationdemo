@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:padding="12dp"
+    android:background="#FFFFFF">
+
+    <TextView
+        android:id="@+id/tv_title_expanded"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="通知标题 (展开状态)"
+        android:textColor="#333333"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_content_expanded"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_title_expanded"
+        android:layout_marginTop="8dp"
+        android:text="这里是展开后的详细内容展示，可以包含更多的文字信息，甚至是可以交互的按钮等。为了演示，我们放一个大图在下面。"
+        android:textColor="#666666"
+        android:textSize="14sp" />
+
+    <ImageView
+        android:id="@+id/iv_big_picture"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_below="@id/tv_content_expanded"
+        android:layout_marginTop="8dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_launcher_background" />
+
+</RelativeLayout>
